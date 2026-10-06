@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder - SKL 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="brand">🍳 RecipeFinder</a>
+      <button id="favorite-toggle-btn" class="favorite-button" type="button">
+        ❤️ Favorites <span id="favorite-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <p class="eyebrow">🍴 RECIPE EXPLORER</p>
+      <h1>What do you want to cook today?</h1>
+      <p class="hero-description">Find simple recipes from around the world.</p>
+
+      <form id="search-form" class="search-form">
+        <input type="search" id="search-input" placeholder="Search recipes..." autocomplete="off">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="filters">
+        <select id="cuisine-filter">
+          <option value="">All Cuisine</option>
+        </select>
+        <select id="difficulty-filter">
+          <option value="">All Difficulty</option>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <section class="recipes-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">DISCOVER</p>
+          <h2 id="section-title">Explore Recipes</h2>
+        </div>
+        <div class="results-summary">
+          <p id="recipe-count" aria-live="polite">0 recipes</p>
+          <button
+            id="reset-filter-button"
+            class="reset-filter-button"
+            type="button"
+            hidden
+            aria-label="Reset search and filters"
+            title="Reset search and filters"
+          >
+            <span class="reset-emoji" aria-hidden="true">🔄</span>
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- State Indicators -->
+      <div id="loading-state" class="state-message">
+        <span class="loader"></span>
+        <p>Memuat resep...</p>
+      </div>
+
+      <div id="error-state" class="state-message" hidden>
+        <h3>😵 Terjadi Kesalahan</h3>
+        <p>Gagal memuat resep. Silakan periksa koneksi internet Anda dan coba lagi.</p>
+      </div>
+
+      <div id="empty-state" class="state-message" hidden>
+        <h3>🔍 Resep Tidak Ditemukan</h3>
+        <p>Coba gunakan kata kunci atau filter pilihan yang lain.</p>
+      </div>
+
+      <!-- Recipe Grid -->
+      <div id="recipe-grid" class="recipe-grid" hidden></div>
+    </div>
+  </section>
+
+  <!-- Dialog Modal for Recipe Details -->
+  <dialog id="recipe-dialog">
+    <button id="close-dialog" class="close-dialog" type="button" aria-label="Tutup detail">&times;</button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <!-- Connection to JavaScript file -->
+  <script src="script.js" defer></script>
+</body>
+</html>
